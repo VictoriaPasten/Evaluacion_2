@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from GaleriaApp import views
+from GaleriaApp import views as v1
+from InicioApp import views as v2
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
-    path('juego/<str:juego_id>/', views.index, name='juego'),
+    path('', v2.indexInicio, name='indexInicio'),
+    path('galeria/', v1.index, name='index'),
+    path('juego/<str:juego_id>/', v1.index, name='juego'),
+
+
 ]
