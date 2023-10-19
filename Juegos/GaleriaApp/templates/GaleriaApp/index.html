@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Información de videojuegos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1 class="text-center">Selecciona un videojuego</h1>
+
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <ul class="list-group">
+                {% for game in videojuegos %}
+                    {% if game.name != selected_game.name %}
+                        <li class="list-group-item"><a href="?game={{ game.name }}">{{ game.name }}</a></li>
+                    {% else %}
+                        <li class="list-group-item active">{{ game.name }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-md-8">
+            <h2>Información sobre {{ selected_game.name }}</h2>
+            <img src="{{ selected_game.image }}"  class="img-fluid" style="max-width: 200px;">
+            <ul class="list-group mt-3">
+                <li class="list-group-item">Género: {{ selected_game.genero }}</li>
+                <li class="list-group-item">Plataforma: {{ selected_game.plataforma }}</li>
+                <li class="list-group-item">Año de lanzamiento: {{ selected_game.año }}</li>
+                <li class="list-group-item">Desarrollador: {{ selected_game.desarrollador }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <footer class="bg-light text-center text-lg-start">
+        <div class="container p-4">
+            <h5>integrantes</h5>
+            <ul class="list-group list-group-horizontal-md">
+                <li class="list-group-item">Leonardo Seguel </li>
+                <li class="list-group-item">Victoria Pastén</li>
+                
+            </ul>
+        </div>
+    </footer>
+</div>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
