@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,8 @@
         </div>
         <div class="col-md-8">
             <h2>Información sobre {{ selected_game.name }}</h2>
-            <img src="{{ selected_game.image }}"  class="img-fluid" style="max-width: 200px;">
+            <img src="{% static 'images/' %}{{ selected_game.image }}" alt="prueba" class="img-fluid" style="max-width: 200px;">
+            
             <ul class="list-group mt-3">
                 <li class="list-group-item">Género: {{ selected_game.genero }}</li>
                 <li class="list-group-item">Plataforma: {{ selected_game.plataforma }}</li>
